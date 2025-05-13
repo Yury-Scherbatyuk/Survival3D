@@ -8,10 +8,14 @@ extends CharacterBody3D
 
 #cash head
 @onready var head: Node3D = $Head
+@onready var interaction_ray_cast: RayCast3D = $Head/InteractionRayCast
 
 # when a node and childs are ready
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func _process(delta: float) -> void:
+	interaction_ray_cast.check_interaction()
 
 #runs 60 times per second
 func _physics_process(delta: float) -> void:

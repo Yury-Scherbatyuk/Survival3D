@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm24xek3wjbhi"]
+
+[ext_resource type="PackedScene" uid="uid://d1lqdn2ccudtx" path="res://items/interactables/pickuppable_template.tscn" id="1_tlwsp"]
+[ext_resource type="PackedScene" uid="uid://bb7u5aywj3218" path="res://meshes/plant.tscn" id="2_tlwsp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xyvby"]
+radius = 0.0646948
+height = 0.698095
+
+[node name="PickuppablePlant" instance=ExtResource("1_tlwsp")]
+
+[node name="Pickuppable" parent="." index="0"]
+item_key = {
+"Plant": 0,
+"Stick": 1,
+"Stone": 2
+}
+prompt = "Pickup plant"
+
+[node name="CollisionShape3D" parent="Pickuppable" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_xyvby")
+
+[node name="Plant" parent="." index="1" instance=ExtResource("2_tlwsp")]
